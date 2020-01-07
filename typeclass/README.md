@@ -17,6 +17,23 @@ Type classes in Go don't fit into the language very well, and here's why:
 
 Go makes it hard, but type classes are a powerful tool for us in specicic situations. We'll use examples hereafter to explain the utility of this pattern.
 
+## Tool to model the domain of the problem.
+
+For example, if you want to model an Address. Does string concatenation valid for your domain?
+```
+address1 string
+address2 string
+address3 := address1  + address2 // is valid. Because they are both strings.
+
+```
+vs
+```
+type Address string
+address1 := Address("address1")
+address2 := Address("address2")
+address1 + address2 // not complile.
+```
+How can
 ## Checking Equality
 
 Let's say we have a type that looks like this:
