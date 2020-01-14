@@ -26,13 +26,29 @@ address2 string
 address3 := address1  + address2 // is valid. Because they are both strings.
 
 ```
-vs
+so does type
 ```
 type Address string
-address1 := Address("address1")
-address2 := Address("address2")
-address1 + address2 // not complile.
+var address1, address2 Address
+address1 := "address1"
+address2 := "address2"
+address1 + address2 // still compiles.
 ```
+but
+
+```
+type Address2 struct {
+   string
+}
+
+var address1, address2 Address2
+address1 = Address2{"1234"}
+address2 = Address2{"5678"}
+address1 + address2 // will not compile
+fmt.Printf("address1: %#v address :#v \n", address1, address2) // will not compile either
+
+```
+
 How can
 ## Checking Equality
 
